@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @product.price %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @product.category.name %>
+</p>
+
+<p>
+  <strong>Users Favourite this Product:</strong>
+  </br>
+  <% @users= @product.users %>
+  <% @users.each do |user| %>
+    <h4><%= user.email %></h4>
+  <% end %>
+</p>
+Quality  : <%= rating_for @product, 'quality', disable_after_rate: true  ,cancel_hint: 'Cancel this rating!', star: 5, imdb_avg: true %>
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
